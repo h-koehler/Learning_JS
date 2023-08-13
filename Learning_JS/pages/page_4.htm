@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body id="top">
+    <div class="header">
+        <h1>JavaScript Functions and Objects</h1>
+        <ul class="navBar">
+            <li><a href="../home.htm">Intro</a></li>
+            <li><a href="page_2.htm">Output</a></li>
+            <li><a href="page_3.htm">Statements & Variables</a></li>
+            <li class="dropdown">More
+                <div class="dropdown-content">
+                    <a href="page_4.htm" class="active"
+                        style="border-top-left-radius: 15px; border-top-right-radius: 15px;">Functions & Objects</a>
+                    <a href="page_5.htm">Events</a>
+                    <a href="page_6.htm">String Methods</a>
+                    <a href="page_7.htm">String Search Methods</a>
+                    <a href="page_8.htm">Number Methods</a>
+                    <a href="page_9.htm"
+                        style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">Arrays</a>
+                </div>
+            </li>
+        </ul>
+
+        <button type="button" onclick="window.location.href='page_3.htm';">Previous</button>
+        <button type="button" onclick="window.location.href='page_5.htm';">Next</button>
+    </div>
+
+    <h2>Functions</h2>
+    <div class="content">
+        <div class="nested" style="text-align: left;">
+            <code>function toCelsius(fahrenheit) {
+                <pre >    return (5/9) * (fahrenheit - 32)</pre>
+                }<br>
+                let value = toCelsius(77);<br>
+            value = <span id="demo"></span></code>
+
+            <script>
+                function toCelsius(f) {
+                    return (5 / 9) * (f - 32);
+                }
+                let value = toCelsius(77);
+                document.getElementById("demo").innerHTML = value;
+            </script>
+        </div>
+
+        <h3>Functions used as variable values</h3>
+        <p>Instead of using a variable to store the return value of a function:</p>
+        <div class="nested" style="text-align: left;">
+            <code>let x = toCelsius(77);<br>
+                let text = "The temperature is " + x + " Celsius";
+            </code>
+        </div>
+        <p>You can use the function directon, as a value:</p>
+        <div class="nested">
+            <code>
+                let text = "The temperature is " + toCelsius(77) + " Celsius";
+            </code>
+        </div>
+    </div>
+
+    <h2>Objects</h2>
+    <div class="content">
+        <p>You define (and create) a JavaScript object with an object literal:</p>
+        <div class="nested">
+            <code>const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};</code>
+        </div>
+        <p>Spaces and line breaks are not import. An object definition can span multiple lines:</p>
+        <div class="nested" style="text-align: left;">
+            <code>const person = {
+            <pre>    firstName: "John",</pre>
+            <pre>    lastName: "Doe",</pre>
+            <pre>    age: 50,</pre>
+            <pre>    eyeColor: "blue"</pre>
+            };</code>
+        </div>
+        <p>The <b>name:values</b> pairs in JavaScript obejcts are called <b>properties</b>:</p>
+        <table>
+            <tr>
+                <th style="width:50%;">Property</th>
+                <th>Property Value</th>
+            </tr>
+            <tr class="hover">
+                <td>firstName</td>
+                <td>John</td>
+            </tr>
+            <tr class="hover">
+                <td>lastName</td>
+                <td>Doe</td>
+            </tr>
+            <tr class="hover">
+                <td>age</td>
+                <td>50</td>
+            </tr>
+            <tr class="hover">
+                <td>eyeColor</td>
+                <td>blue</td>
+            </tr>
+        </table>
+
+        <p>You can access object properties in two ways:</p>
+        <div class="nested">
+            <code><i>objectName.propertyName</i> OR <i>objectName["propertyName"]</i></code>
+        </div>
+
+        <p>Objects can also have <b>methods</b>. Methods are <b>actions</b> that can be performed on objects. Methods
+            are stored in properties are <b>fuction definitions</b>.</p>
+        <table>
+            <tr>
+                <th style="width:50%">Property</th>
+                <th>Property Value</th>
+            </tr>
+            <tr class="hover">
+                <td>firstName</td>
+                <td>John</td>
+            </tr>
+            <tr class="hover">
+                <td>lastName</td>
+                <td>Doe</td>
+            </tr>
+            <tr class="hover">
+                <td>age</td>
+                <td>50</td>
+            </tr>
+            <tr class="hover">
+                <td>eyeColor</td>
+                <td>blue</td>
+            </tr>
+            <tr class="hover">
+                <td>fullName</td>
+                <td>function() {return this.firstname + " " + this.lastName;}</td>
+            </tr>
+        </table>
+
+        <p>For example:</p>
+        <div class="nested" style="text-align: left;">
+            <code>const person = {
+            <pre>    firstName : "John",</pre>
+            <pre>    lastName  : "Doe",</pre>
+            <pre>    id        : 5566,,</pre>
+            <pre>    fullName  : function() {</pre>
+            <pre>        return this.firstName + " " + this.lastName;</pre>
+            <pre>    }</pre>
+            };</code>
+        </div>
+        <p>In thie example, <span class="js">this</span> refers to the <b>person object</b>.<br>
+            I.E. <b>this.firstName</b> means the <b>firstName</b> property of <b>this</b>.<br>
+            I.E. <b>this.firstName</b> means the <b>firstName</b> property of <b>person</b>.</p>
+
+        <h3>What is <span class="js">this</span>?</h3>
+        <p>In JavaScript, the <span class="js">this</span> keyword refers to an <b>object</b>. <b>Which</b> object
+            depends on how <span class="js">this</span> is being invoked (used or called). The <span
+                class="js">this</span> keyword refers to different objects dependign on how it is used:</p>
+        <div class="nested">
+            <ul>
+                <li>In an object method, <span class="js">this</span> refers to the <b>object</b></li>
+                <li>Alone, <span class="js">this</span> refers to the <b>global object</b></li>
+                <li>In a function, <span class="js">this</span> refers to the <b>global object</b></li>
+                <li>In a function, in strict mode, <span class="js">this</span> is <span class="js">undefined</span>
+                </li>
+                <li>In an event, <span class="js">this</span> refers to the <b>element</b> that recieved the event</li>
+                <li>Methods like <span class="js">call()</span>, <span class="js">apply()</span>, and <span
+                        class="js">bind()</span> can refer <span class="js">this</span> to <b>any object</b></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="nested">
+            <p>Do not declare <span class="js">Strings</span>, <span class="js">Numbers</span>, and <span
+                    class="js">Booleans</span> as objects! They complicate your code and slow down execution speed.</p>
+        </div>
+    </div>
+
+    <div class="backToTop">
+        <button type="button" onClick="window.location.href='#top'">Back to Top</button>
+    </div>
+
+    <div class="footer">
+        <button type="button" onclick="window.location.href='page_3.htm';">Previous</button>
+        <button type="button" onclick="window.location.href='page_5.htm';">Next</button>
+    </div>
+</body>
+
+</html>

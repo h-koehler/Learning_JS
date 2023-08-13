@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        button.methods:hover,
+        button.reset:hover {
+            color: #fefae0;
+            background-color: #a68a64;
+        }
+
+        td {
+            padding: 0;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        button.methods {
+            background-color: #c2c5aa;
+            border: none;
+            outline: none;
+            color: #242C1D;
+            margin: 0;
+            width: 100%;
+            padding: 5px;
+            box-shadow: none;
+            padding: 7px 9px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border-radius: 0;
+        }
+
+        button.reset {
+            background-color: #a2a491;
+            border: none;
+            outline: none;
+            color: #242C1D;
+            margin: 0;
+            width: 100%;
+            padding: 5px;
+            box-shadow: none;
+            padding: 7px 9px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body id="top">
+    <div class="header">
+        <h1>JavaScript String Methods</h1>
+        <ul class="navBar">
+            <li><a href="../home.htm">Intro</a></li>
+            <li><a href="page_2.htm">Output</a></li>
+            <li><a href="page_3.htm">Statements & Variables</a></li>
+            <li class="dropdown">More
+                <div class="dropdown-content">
+                    <a href="page_4.htm" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">Functions
+                        & Objects</a>
+                    <a href="page_5.htm">Events</a>
+                    <a href="page_6.htm" class="active">String Methods</a>
+                    <a href="page_7.htm">String Search Methods</a>
+                    <a href="page_8.htm">Number Methods</a>
+                    <a href="page_9.htm"
+                        style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">Arrays</a>
+                </div>
+            </li>
+        </ul>
+
+        <button type="button" onclick="window.location.href='page_5.htm';">Previous</button>
+        <button type="button" onclick="window.location.href='page_7.htm';">Next</button>
+    </div>
+
+    <script>
+        let lastID = "blank";
+
+        function goToCard(cardID) {
+            if (lastID != "blank") {
+                document.getElementById(lastID).style = "outline:none;";
+            }
+            window.location.href = cardID;
+
+            cardID = cardID.slice(1);
+            lastID = cardID;
+            document.getElementById(cardID).style = "outline:6px solid #F6BD60;";
+        }
+    </script>
+
+    <div class="content">
+        <p>All string methods return a new string. They don't modify the original string.</p>
+        <table class="methods">
+            <tr>
+                <td><button class="methods" onclick="goToCard('#S1')">String length</button></td>
+                <td><button class="methods" onclick="goToCard('#S7')">String toUpperCase()</button></td>
+                <td><button class="methods" onclick="goToCard('#S13')">String padStart()</button></td>
+            </tr>
+            <tr>
+                <td><button class="methods" onclick="goToCard('#S2')">String slice()</button></td>
+                <td><button class="methods" onclick="goToCard('#S8')">String toLowerCase()</button></td>
+                <td><button class="methods" onclick="goToCard('#S14')">String padEnd()</button></td>
+            </tr>
+            <tr>
+                <td><button class="methods" onclick="goToCard('#S3')">String substring()</button></td>
+                <td><button class="methods" onclick="goToCard('#S9')">String concat()</button></td>
+                <td><button class="methods" onclick="goToCard('#S15')">String chartAt()</button></td>
+            </tr>
+            <tr>
+                <td><button class="methods" onclick="goToCard('#S4')">String substr()</button></td>
+                <td><button class="methods" onclick="goToCard('#S10')">String trim()</button></td>
+                <td><button class="methods" onclick="goToCard('#S16')">String charCodeAt()</button></td>
+            </tr>
+            <tr>
+                <td><button class="methods" onclick="goToCard('#S5')">String replace()</button></td>
+                <td><button class="methods" onclick="goToCard('#S11')">String trimStart()</button></td>
+                <td><button class="methods" onclick="goToCard('#S17')">String split()</button></td>
+            </tr>
+            <tr>
+                <td><button class="methods" onclick="goToCard('#S6')">String replaceAll()</button></td>
+                <td><button class="methods" onclick="goToCard('#S12')">String trimEnd()</button></td>
+                <td><button class="reset" onclick="window.location.href='page_6.htm'">Reset</td>
+            </tr>
+        </table>
+    </div><br>
+    <div class="card" id="S1">
+        <h3>String length</h3>
+        <p>The <span class="js">length</span> property returns the length of a string.</p>
+    </div>
+
+    <div class="card" id="S2">
+        <h3>String slice()</h3>
+        <p><span class="js">slice(<i>start</i>, <i>end</i>)</span> extracts a part of a string and returns the
+            extracted part in a new string. The method takes 2 parameters: start position, and end position (end not
+            included). If the parameter is negative, the position is counted form the end of the string.</p>
+    </div>
+
+    <div class="card" id="S3">
+        <h3>String substring()</h3>
+        <p><span class="js">substring(<i>start</i>, <i>end</i>)</span> extracts a part of a string and returns the
+            extracted part in a new string. The method takes 2 parameters: start position, and end position (end not
+            included). If the parameter is negative, it is treated as 0.</p>
+    </div>
+
+    <div class="card" id="S4">
+        <h3>String substr()</h3>
+        <p><span class="js">substr(<i>start</i>, <i>length</i>)</span> extracts a part of a string and returns the
+            extracted part in a new string. The method takes 2 parameters: start position, length (length of the
+            extracted part).</p>
+    </div>
+
+    <div class="card" id="S5">
+        <h3>String replace()</h3>
+        <p>The <span class="js">replace(<i>value1</i>, <i>value2</i>)</span> method replaces a specified value with
+            another value in a string.</p>
+    </div>
+
+    <div class="card" id="S6">
+        <h3>String replaceAll()</h3>
+        <p>The <span class="js">replace(<i>value1</i>, <i>value2</i>)</span> method allows you to specify a regular
+            expression instead of a string to be replaced.</p>
+    </div>
+
+    <div class="card" id="S7">
+        <h3>String toUpperCase()</h3>
+        <p>The <span class="js">toUpperCase(<i>value</i>)</span> method converts a string to upper case.</p>
+    </div>
+
+    <div class="card" id="S8">
+        <h3>String toLowerCase()</h3>
+        <p>The <span class="js">toLowerCase(<i>value</i>)</span> method converts a string to lower case.</p>
+    </div>
+
+    <div class="card" id="S9">
+        <h3>String concat()</h3>
+        <p>The <span class="js">toUpperCase(<i>value1</i>, <i>value2</i>, ..., <i>valueX</i>)</span> joins two or more
+            strings. It can be used instead of the plus operator.</p>
+    </div>
+
+    <div class="card" id="S10">
+        <h3>String trim()</h3>
+        <p>The <span class="js">trim()</span> method removes whitespace from both sides of a string.</p>
+    </div>
+
+    <div class="card" id="S11">
+        <h3>String trimStart()</h3>
+        <p>The <span class="js">trimStart()</span> method removes whitespace only from the start of a string.</p>
+    </div>
+
+    <div class="card" id="S12">
+        <h3>String trimEnd()</h3>
+        <p>The <span class="js">trimEnd()</span> method removes whitespace only from the end of a string.</p>
+    </div>
+
+    <div class="card" id="S13">
+        <h3>String padStart()</h3>
+        <p>The <span class="js">padStart(<i>length</i>, <i>string</i>)</span> method pads a string from the start. It
+            pads a
+            string with another string (multiple times) until it reaches a given length.</p>
+    </div>
+
+    <div class="card" id="S14">
+        <h3>String padEnd()</h3>
+        <p>The <span class="js">padEnd(<i>length</i>, <i>string</i>)</span> method pads a string from the end. It pads a
+            string with another string (multiple times) until it reaches a given length.</p>
+    </div>
+
+    <div class="card" id="S15">
+        <h3>String charAt()</h3>
+        <p>The <span class="js">charAt(<i>position</i>)</span> method returns the character at a specified index
+            (position) in a string.</p>
+    </div>
+
+    <div class="card" id="S16">
+        <h3>String charCodeAt()</h3>
+        <p>The <span class="js">charAt(<i>position</i>)</span> method returns the unicode (UTF-16 code) of the character
+            at a specified index in a string.</p>
+    </div>
+
+    <div class="card" id="S17">
+        <h3>String split()</h3>
+        <p>The <span class="js">split(<i>separator</i>)</span> method converts a string into an array. If
+            the separator is omitted, the returned array will contain the whole string in index[0]. If the separator is
+            "", the returned array will be an array of single characters.</p>
+    </div>
+
+    <div class="backToTop">
+        <button type="button" onClick="window.location.href='#top'">Back to Top</button>
+    </div>
+
+    <div class="footer">
+        <button type="button" onclick="window.location.href='page_5.htm';">Previous</button>
+        <button type="button" onclick="window.location.href='page_7.htm';">Next</button>
+
+    </div>
+</body>
+
+</html>

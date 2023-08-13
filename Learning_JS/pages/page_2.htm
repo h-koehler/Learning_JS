@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        p {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<!-----------------------JS OUTPUT-------------------------
+JavaScript can display data in different ways:
+    -   Writing into an HTML element using innerHTML
+    -   Writing into the HTML output using document.write()
+    -   Writing into an alert box using window.alert()
+    -   Writing into the browser console using console.log()
+----------------------------------------------------------->
+
+<body id="top">
+    <div class="header">
+        <h1>JavaScript Output</h1>
+        <ul class="navBar">
+            <li><a href="../home.htm">Intro</a></li>
+            <li><a class="active" href="page_2.htm">Output</a></li>
+            <li><a href="page_3.htm">Statements & Variables</a></li>
+            <li class="dropdown">More
+                <div class="dropdown-content">
+                    <a href="page_4.htm" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">Functions
+                        & Objects</a>
+                    <a href="page_5.htm">Events</a>
+                    <a href="page_6.htm">String Methods</a>
+                    <a href="page_7.htm">String Search Methods</a>
+                    <a href="page_8.htm">Number Methods</a>
+                    <a href="page_9.htm"
+                        style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">Arrays</a>
+                </div>
+            </li>
+        </ul>
+
+        <button type="button" onclick="window.location.href='../home.htm';">Previous</button>
+        <button type="button" onclick="window.location.href='page_3.htm';">Next</button>
+    </div>
+    <div class="content">
+        <p>This calculation is displayed using innerHTML:<br>
+            5 + 6 = <span id=innerHTML></span></p>
+
+        <script>
+            document.getElementById("innerHTML").innerHTML = 5 + 6;
+        </script>
+
+        <p>For testing purpoases, it is convenient to use document.write():<br>
+            5 + 6 =
+            <script>document.write(5 + 6);</script>
+        </p>
+
+        <p style="margin-bottom:2px;">Using document.write() after an HTML document is loaded will <b>delete all
+                existing HTML</b>:<br>
+            <button type="button" onclick="document.write('Okay Nice! ');createReloadButton()">Delete
+                Everything?</button>
+        </p>
+
+        <script>
+            function createReloadButton() {
+                var button = document.createElement("BUTTON");
+                var buttonText = document.createTextNode("Reload Page");
+                button.appendChild(buttonText);
+                document.body.appendChild(button);
+                button.addEventListener('click', () => {
+                    window.location.reload();
+                })
+            }
+        </script>
+
+        <p>You can also use an alert box to display data:<br>
+            What is 5 + 6?<br>
+            <button type="button" onclick="alert(5 + 6)">Show Answer</button>
+        </p>
+
+        <p>You can use console to display data. Press F12 to activate debugging. Then selection "Console" in the
+            debugger menu. Then click Run again.</p>
+
+        <script>console.log('ur weird for listening to me');</script>
+
+        <p>JavaScript does not have any pring object or print methods. You cannot access output devices from JavaScript.
+            The only exception is you can call window.print() to print the content of the current window.<br>
+
+            <button onclick="window.print()">Wait, why do you want to print this page?</button>
+        </p>
+    </div>
+
+    <div class="backToTop">
+        <button type="button" onClick="window.location.href='#top'">Back to Top</button>
+    </div>
+
+    <div class="footer">
+        <button type="button" onclick="window.location.href='../home.htm';">Previous</button>
+        <button type="button" onclick="window.location.href='page_3.htm';">Next</button>
+    </div>
+</body>
+
+</html>

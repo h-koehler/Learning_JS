@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        button.methods:hover,
+        button.reset:hover {
+            color: #fefae0;
+            background-color: #a68a64;
+        }
+
+        td {
+            padding: 0;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        button.methods {
+            background-color: #c2c5aa;
+            border: none;
+            outline: none;
+            color: #242C1D;
+            margin: 0;
+            width: 100%;
+            padding: 5px;
+            box-shadow: none;
+            padding: 7px 9px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border-radius: 0;
+        }
+
+        button.reset {
+            background-color: #a2a491;
+            border: none;
+            outline: none;
+            color: #242C1D;
+            margin: 0;
+            width: 100%;
+            padding: 5px;
+            box-shadow: none;
+            padding: 7px 9px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body id="top">
+    <div class="header">
+        <h1>JavaScript String Search Methods</h1>
+        <ul class="navBar">
+            <li><a href="../home.htm">Intro</a></li>
+            <li><a href="page_2.htm">Output</a></li>
+            <li><a href="page_3.htm">Statements & Variables</a></li>
+            <li class="dropdown">More
+                <div class="dropdown-content">
+                    <a href="page_4.htm" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">Functions
+                        & Objects</a>
+                    <a href="page_5.htm">Events</a>
+                    <a href="page_6.htm">String Methods</a>
+                    <a href="page_7.htm" class="active">String Search Methods</a>
+                    <a href="page_8.htm">Number Methods</a>
+                    <a href="page_9.htm"
+                        style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">Arrays</a>
+                </div>
+            </li>
+        </ul>
+
+        <button type="button" onclick="window.location.href='page_6.htm';">Previous</button>
+        <button type="button" onclick="window.location.href='page_8.htm';">Next</button>
+    </div>
+
+    <script>
+        let lastID = "blank";
+
+        function goToCard(cardID) {
+            if (lastID != "blank") {
+                document.getElementById(lastID).style = "outline:none;";
+            }
+            window.location.href = cardID;
+
+            cardID = cardID.slice(1);
+            lastID = cardID;
+            document.getElementById(cardID).style = "outline:6px solid #F6BD60;";
+        }
+    </script>
+
+    <div class="content">
+        <p>All string methods return a new string. They don't modify the original string.</p>
+        <table class="methods">
+            <tr>
+                <td><button class="methods" onclick="goToCard('#S1')">String indexOf()</button></td>
+                <td><button class="methods" onclick="goToCard('#S4')">String match()</button></td>
+                <td><button class="methods" onclick="goToCard('#S7')">String startsWith()</button></td>
+            </tr>
+            <tr>
+                <td><button class="methods" onclick="goToCard('#S2')">String lastIndexOf()</button></td>
+                <td><button class="methods" onclick="goToCard('#S5')">String matchAll()</button></td>
+                <td><button class="methods" onclick="goToCard('#S8')">String endsWith()</button></td>
+            </tr>
+            <tr>
+                <td><button class="methods" onclick="goToCard('#S3')">String search()</button></td>
+                <td><button class="methods" onclick="goToCard('#S6')">String includes()</button></td>
+                <td><button class="reset" onclick="window.location.href='page_7.htm'">Reset</td>
+            </tr>
+        </table>
+    </div><br>
+    <div class="card" id="S1">
+        <h3>String indexOf()</h3>
+        <p>The <span class="js">indexOf(<i>string</i>)</span> method returns the index (position) of the first occurance
+            of a string in a string. Returns -1 if the text is not found. Can take a second start position argument.</p>
+    </div>
+
+    <div class="card" id="S2">
+        <h3>String lastIndexOf()</h3>
+        <p><span class="js">lastIndexOf(<i>string</i>>)</span> method reurns the index of the last occurance of a string
+            in a string. Returns -1 if the text is not found. Can take a second start position argument.</p>
+    </div>
+
+    <div class="card" id="S3">
+        <h3>String search()</h3>
+        <p><span class="js">searach(<i>string</i>)</span> method search the string for a string or regular expression
+            and returns the position of the match.</p>
+    </div>
+
+    <div class="card" id="S4">
+        <h3>String match()</h3>
+        <p>The <span class="js">match(<i>string</i>)</span> method returns an array containing the results of matching
+            against a string or regular expression.</p>
+    </div>
+
+    <div class="card" id="S5">
+        <h3>String matchAll()</h3>
+        <p>The <span class="js">matchAll(<i>string</i>)</span> method returns an iterator containing the reuslts of
+            matching a string against a string or a regular expression.</p>
+    </div>
+
+    <div class="card" id="S6">
+        <h3>String includes()</h3>
+        <p>The <span class="js">includes(<i>value</i>)</span> method returns true if a string contains a specified
+            value. Otherwise it returns false.</p>
+    </div>
+
+    <div class="card" id="S7">
+        <h3>String startsWith()</h3>
+        <p>The <span class="js">startsWith(<i>value</i>)</span> method returns true if a string contains a specified
+            value. Otherwise it returns false.</p>
+    </div>
+
+    <div class="card" id="S8">
+        <h3>String endsWith()</h3>
+        <p>The <span class="js">endsWith(<i>value</i>)</span> method returns true if a string ends with a specified
+            value. Otherwise it returns false.</p>
+    </div>
+
+    <div class="backToTop">
+        <button type="button" onClick="window.location.href='#top'">Back to Top</button>
+    </div>
+
+    <div class="footer">
+        <button type="button" onclick="window.location.href='page_6.htm';">Previous</button>
+        <button type="button" onclick="window.location.href='page_8.htm';">Next</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body id="top">
+    <div class="header">
+        <h1>JavaScript Statements & Variables</h1>
+        <ul class="navBar">
+            <li><a href="../home.htm">Intro</a></li>
+            <li><a href="page_2.htm">Output</a></li>
+            <li><a href="page_3.htm" class="active">Statements & Variables</a></li>
+            <li class="dropdown">More
+                <div class="dropdown-content">
+                    <a href="page_4.htm" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">Functions
+                        & Objects</a>
+                    <a href="page_5.htm">Events</a>
+                    <a href="page_6.htm">String Methods</a>
+                    <a href="page_7.htm">String Search Methods</a>
+                    <a href="page_8.htm">Number Methods</a>
+                    <a href="page_9.htm"
+                        style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">Arrays</a>
+                </div>
+            </li>
+        </ul>
+
+        <button type="button" onclick="window.location.href='page_2.htm';">Previous</button>
+        <button type="button" onclick="window.location.href='page_4.htm';">Next</button>
+    </div>
+
+    <h2>Statements</h2>
+    <div class="content">
+        <p>A JavaScript program is a list of statements to be executed by a computer. For example:</p>
+
+        <div class="nested">
+            <p style="text-align: left;">
+                <code>let x, y, z;<br>
+                x = 5;<br>
+                y = 6;<br>
+                z = x + y;<br></code>
+            </p><br>
+
+            <b id="demo"></b>
+        </div>
+
+        <script>
+            let x, y, z;
+            x = 5
+            y = 6;
+            z = x + y;
+
+            document.getElementById("demo").innerHTML = "The value of z is " + z + ".";
+        </script>
+    </div>
+
+    <h2>Variables</h2>
+    <div class="content">
+
+        <p>JavaScript Variables can be declared in 4 ways:
+        <div class="nested">
+            <ul>
+                <li>Automatically</li>
+                <li>Using <span class="js">var</span></li>
+                <li>Using <span class="js">let</span></li>
+                <li>Using <span class="js">const</span></li>
+            </ul>
+        </div>
+        </p>
+
+        <h4 style="margin-bottom: 0;">When to use var, let, or const?</h4>
+        <div class="nestedInvis">
+            <ol>
+                <li>Always declare variables</li>
+                <li>Always use <span class="js">const</span> if the values should not be changed</li>
+                <li>Always use <span class="js">const</span> if the type should not be changed (Arrays and Objects)</li>
+                <li>Only use <span class="js">let</span> if you can't use <span class="js">const</span></li>
+                <li>Only use <span class="js">var</span> if you MUST support old browsers.</li>
+            </ol>
+        </div>
+
+        <h3>JavaScript <span class="js">Let</span></h3>
+        <p>Variables defined with <span class="js">let</span> cannot be <b>Redeclared</b> in the same block.<br>
+        <div class="nested">
+            With <span class="js">let</span> you can <b>not</b> do this:
+            <p style="text-align: left;">
+                <code>let x = "John Doe";<br>
+                let x = 0;</code>
+            </p>
+        </div><br>
+        Variables defined with <span class="js">let</span> must be <b>Declared</b> before use<br>
+
+        Variables defined with <span class="js">let</span> have <b>Block Scope</b>.<br>
+        <div class="nested">
+            <b>Block Scope</b> means variables declared inside a { } block cannot be accessed outside the block.
+        </div>
+        </p>
+
+        <h3>JavaScript <span class="js">Const</span></h3>
+        <p>Variables defined with <span class="js">const</span> cannot be <b>Redeclared</b>.<br>
+            Variables defined with <span class="js">const</span> cannot be <b>Reassigned</b>.<br></p>
+        <div class="nested">
+            <p style="text-align: left;">
+                <code>const PI = 3.141592653589793;<br>
+                PI = 3.14; // This will give an error<br>
+                PI = PI + 10; // This will also give an error</code>
+        </div>
+        <p>Variables defined with <span class="js">const</span> have <b>Block Scope</b>.</p>
+
+        <h4 style="margin-bottom: 0;">When to use JavaScript const?</h4>
+        <p><b>Always declare a variable with <span class="js">const</span> when you knoew that the value should not be
+                changed.</b><br>
+            Use <span class="js">const</span> when you declare:</p>
+        <div class="nested">
+            <ul>
+                <li>A new array</li>
+                <li>A new Object</li>
+                <li>A new Function</li>
+                <li>A new RegExp</li>
+            </ul>
+        </div>
+
+        <div class="nested"><b>Note:</b> <span class="js">const</span> does not define a constant value. It defines a
+            constant reference to a value. Because of this, you can NOT:
+            <ul>
+                <li>Reassign a constant value</li>
+                <li>Reassign a constant array</li>
+                <li>Reassign a constant object</li>
+            </ul>
+            But you CAN:
+            <ul>
+                <li>Change the elements of constant array</li>
+                <li>Change the properties of constant object</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="nested">
+            <p>JavaScript has 8 data types:</p>
+            <div class="nestedInvis">
+                <ul>
+                    <li>String</li>
+                    <li>Number</li>
+                    <li>Bigint</li>
+                    <li>Boolean</li>
+                    <li>Undefined</li>
+                    <li>Null</li>
+                    <li>Symbol</li>
+                    <li>Object</li>
+                </ul>
+            </div>
+            <p>The object data type can contain:</p>
+            <div class="nestedInvis">
+                <ul>
+                    <li>An object</li>
+                    <li>An array</li>
+                    <li>A date</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="backToTop">
+        <button type="button" onClick="window.location.href='#top'">Back to Top</button>
+    </div>
+
+    <div class="footer">
+        <button type="button" onclick="window.location.href='page_2.htm';">Previous</button>
+        <button type="button" onclick="window.location.href='page_4.htm';">Next</button>
+    </div>
+
+</body>
+
+</html>

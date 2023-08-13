@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+        button.methods:hover,
+        button.reset:hover {
+            color: #fefae0;
+            background-color: #a68a64;
+        }
+
+        td {
+            padding: 0;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        button.methods {
+            background-color: #c2c5aa;
+            border: none;
+            outline: none;
+            color: #242C1D;
+            margin: 0;
+            width: 100%;
+            padding: 5px;
+            box-shadow: none;
+            padding: 7px 9px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border-radius: 0;
+        }
+
+        button.reset {
+            background-color: #a2a491;
+            border: none;
+            outline: none;
+            color: #242C1D;
+            margin: 0;
+            width: 100%;
+            padding: 5px;
+            box-shadow: none;
+            padding: 7px 9px;
+            box-sizing: border-box;
+            font-size: 16px;
+            border-radius: 0;
+        }
+    </style>
+</head>
+
+<body id="top">
+    <div class="header">
+        <h1>JavaScript Arrays</h1>
+        <ul class="navBar">
+            <li><a href="../home.htm">Intro</a></li>
+            <li><a href="page_2.htm">Output</a></li>
+            <li><a href="page_3.htm">Statements & Variables</a></li>
+            <li class="dropdown">More
+                <div class="dropdown-content">
+                    <a href="page_4.htm" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">Functions
+                        & Objects</a>
+                    <a href="page_5.htm">Events</a>
+                    <a href="page_6.htm">String Methods</a>
+                    <a href="page_7.htm">String Search Methods</a>
+                    <a href="page_8.htm">Number Methods</a>
+                    <a href="page_9.htm" class="active"
+                        style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">Arrays</a>
+                </div>
+            </li>
+        </ul>
+
+        <button type="button" onclick="window.location.href='page_8.htm';">Previous</button>
+    </div>
+
+    <div class="content">
+        <p>These two different statements both create a new empty array named points:</p>
+        <div class="codeBox">
+            const points = new Array();<br>
+            const points = [];
+        </div>
+        <p>These two different statements both create a new array containing 6 numbers:</p>
+        <div class="codeBox">
+            const points = new Array(5, 10, 15, 20, 25, 30);<br>
+            const points = [5, 10, 15, 20, 25, 30];
+        </div>
+        <p>However, these two different statements do not both create a new array containing 1 number:</p>
+        <div class="codeBox">
+            const points = [40];<br>
+            const points = new Array(40);
+        </div>
+        <p>The first statement creates an array with 1 element. The second statement creates an array with 40 undefined
+            elements.</p>
+    </div>
+
+    <script>
+        let lastID = "blank";
+
+        function goToCard(cardID) {
+            if (lastID != "blank") {
+                document.getElementById(lastID).style = "outline:none;";
+            }
+            window.location.href = cardID;
+
+            cardID = cardID.slice(1);
+            lastID = cardID;
+            document.getElementById(cardID).style = "outline:6px solid #F6BD60;";
+        }
+    </script>
+
+    <div class="content">
+        <table class="methods">
+            <tr>
+                <td><button class="methods" onclick="goToCard('#S1')">Array length</button></td>
+                <td><button class="methods" onclick="goToCard('#S2')">Array toString()</button></td>
+                <td><button class="methods" onclick="goToCard('#S3')">Array pop()</button></td>
+                <td><button class="methods" onclick="goToCard('#S4')">Array push()</button></td>
+            </tr>
+            <tr>
+                <td><button class="methods" onclick="goToCard('#S5')">Array shift()</button></td>
+                <td><button class="methods" onclick="goToCard('#S6')">Array unshift()</button></td>
+                <td><button class="methods" onclick="goToCard('#S7')">Array join()</button></td>
+                <td><button class="methods" onclick="goToCard('#S8')">Array delete()</button></td>
+            </tr>
+            <tr>
+                <td><button class="methods" onclick="goToCard('#S9')">Array concat()</button></td>
+                <td><button class="methods" onclick="goToCard('#S10')">Array flat()</button></td>
+                <td><button class="methods" onclick="goToCard('#S11')">Array splice()</button></td>
+                <td><button class="methods" onclick="goToCard('#S12')">Array slice()</button></td>
+            </tr>
+            <tr>
+                <td><button class="methods" onClick="goToCard('#S13')">sort()</button></td>
+                <td><button class="methods" onClick="goToCard('#S14')">reverse()</button></td>
+                <td style="visibility: hidden;"></td>
+                <td style="visibility: hidden;"></td>
+            </tr>
+        </table>
+    </div><br>
+    <div class="card" id="S1">
+        <h3>Array length</h3>
+        <p>The <span class="js">length</span> property returns the length of an array.</p>
+    </div>
+
+    <div class="card" id="S2">
+        <h3>Array toString()</h3>
+        <p><span class="js">toString()</span> converts an array to a stirng of comma separated array values.</p>
+    </div>
+    <div class="card" id="S3">
+        <h3>Array pop()</h3>
+        <p><span class="js">pop()</span> removes the last element from an array and returns the value that was
+            popped out.</p>
+    </div>
+
+    <div class="card" id="S4">
+        <h3>Array push()</h3>
+        <p><span class="js">push(<i>value</i>)</span> adds a new element to the end of an array and returns the new
+            array length.</p>
+    </div>
+
+    <div class="card" id="S5">
+        <h3>Array shift()</h3>
+        <p>The <span class="js">shift()</span> method removes the first array element and "shifts" all other
+            elements to a lower index. Returns the value that was "shifted out".</p>
+    </div>
+
+    <div class="card" id="S6">
+        <h3>Array unshift()</h3>
+        <p>The <span class="js">unshift(<i>value</i>)</span> method adds a new elemnent to the beginning of an array
+            and "unshifts" older elements.</p>
+    </div>
+
+    <div class="card" id="S7">
+        <h3>Array join()</h3>
+        <p>The <span class="js">join(<i>separator</i>)</span> method joins all array elements into a string, and
+            allows you to specify the
+            separator.</p>
+    </div>
+
+    <div class="card" id="S8">
+        <h3>Array delete()</h3>
+        <p>The <span class="js">delete()</span> method is a JavaScript operator and can be used to delete array
+            elements. However, using delete leaves undefined holes in the array.</p>
+    </div>
+
+    <div class="card" id="S9">
+        <h3>Array concat()</h3>
+        <p>The <span class="js">concat(<i>array1</i>, <i>array2</i>, ...,<i>arrayX</i>)</span> method creates a new
+            array by merging two or more existing arrays. It returns the new array.</p>
+    </div>
+
+
+    <div class="card" id="S10">
+        <h3>Array flat()</h3>
+        <p>Flattening an array is the process of reducing the dimensionality of an array. The <span
+                class="js">flat()</span> method creates a new array with sub-array elements concatenated to a specified
+            depth.</p>
+    </div>
+
+    <div class="card" id="S11">
+        <h3>Array splice()</h3>
+        <p>The <span class="js">splice(<i>index</i>, <i>howmany</i>, <i>item1</i>, ..., <i>itemX</i>)</span> method can
+            be used to add new items to an array. The first paraeter defines the position where the new elements should
+            be added. The second parameter defines how many elements should be rmeoved. The rest of the parameters
+            define the new elements to be added. Returns an array with the deleted items.</p>
+    </div>
+
+    <div class="card" id="S12">
+        <h3>Array slice()</h3>
+        <p>The <span class="js">slice(<i>index</i>)</span> method slices out a piece of an array into a new array.</p>
+    </div>
+
+    <div class="card" id="S13">
+        <h3>sort()</h3>
+        <p>The <span class="js">sort()</span> method sorts an array alphabetically.</p>
+    </div>
+
+    <div class="card" id="S14">
+        <h3>reverse()</h3>
+        <p>The <span class="js">reverse()</span> method reverses the order of the elements in an array.</p>
+    </div>
+
+    <div class="backToTop">
+        <button type="button" onClick="window.location.href='#top'">Back to Top</button>
+    </div>
+
+    <div class="footer">
+        <button type="button" onclick="window.location.href='page_8.htm';">Previous</button>
+    </div>
+</body>
+
+</html>

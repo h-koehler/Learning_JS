@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+
+<body id="top">
+    <div class="header">
+        <h1>JavaScript Events</h1>
+        <ul class="navBar">
+            <li><a href="../home.htm">Intro</a></li>
+            <li><a href="page_2.htm">Output</a></li>
+            <li><a href="page_3.htm">Statements & Variables</a></li>
+            <li class="dropdown">More
+                <div class="dropdown-content">
+                    <a href="page_4.htm" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">Functions
+                        & Objects</a>
+                    <a href="page_5.htm" class="active">Events</a>
+                    <a href="page_6.htm">String Methods</a>
+                    <a href="page_7.htm">String Search Methods</a>
+                    <a href="page_8.htm">Number Methods</a>
+                    <a href="page_9.htm"
+                        style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">Arrays</a>
+                </div>
+            </li>
+        </ul>
+
+        <button type="button" onclick="window.location.href='page_4.htm';">Previous</button>
+        <button type="button" onclick="window.location.href='page_6.htm';">Next</button>
+    </div>
+
+    <div class="content">
+        <p>HTML events are <b>"things"</b> that happen to HTML events.<br>
+            When JavaScript is used in HTML pages, JavaScript can <b>"react"</b> on those events.</p>
+        <h3>HTML Events</h3>
+        <p>An HTML event can be something the browser does, or something a user does.<br>
+            Here are some examples of HTML events:</p>
+        <div class="nestedInvis">
+            <ul>
+                <li>An HTML web page has finished loading</li>
+                <li>An HTML input field was changed</li>
+                <li>An HTML button was clicked</li>
+            </ul>
+        </div>
+        <p>HTML allows event handler attributes, <b>with JavaScript code</b>, to be added to HTML elements.</p>
+
+        <code><pre>&lt;event element = "some JavaScript"&gt;</pre><br>
+        <div class="nested" style="width: 300px">
+            <button onclick=printTime() style="margin-top: 0;">What is the time?</button>
+            <p id="time" style="visibility: hidden;margin-top: 10px;margin-bottom:0px;font-size: 20px;">00:00am</p>
+            <p id="greeting" style="visibility: hidden;margin-top: 5px;font-size: 20px;">Good Almost-Afternoon! &#x2600</p>
+            <script>
+                let date;
+                let hour;
+                let min;
+                function getTime() {
+                    date = new Date();
+                    hour = date.getHours();
+                    min = date.getMinutes();
+                    let newHour = hour;
+                    let newMin = min;
+                    let amOrPm = "am"
+
+                    if (hour == 0) {
+                        newHour = 12;
+                    }
+                    else if (hour >= 12) {
+                        amOrPm = "pm";
+                        if (hour > 12) {
+                            newHour = hour - 12;
+                        }
+                    }
+
+                    if (min < 10) {
+                        newMin = "0" + min;
+                    }
+
+                    return (newHour + ":" + newMin + " " + amOrPm);
+                }
+
+                function getGreeting() {
+                    date = new Date();
+                    hour = date.getHours();
+                    min = date.getMinutes();
+                    let greeting = "Good Morning!";
+                    if (hour < 3) {
+                        greeting = "Gremlin hours &#128121";
+                    }
+                    else if (hour < 5) {
+                        greeting = "Why are you awake? &#129300";
+                    }
+                    else if (hour < 10) {
+                        greeting = "Good Morning! &#128038";
+                    }
+                    else if (hour < 12) {
+                        greeting = "Good Almost-Afternoon! &#x2600";
+                    }
+                    else if (hour < 17) {
+                        greeting = "Good Afternoon! &#128526";
+                    }
+                    else {
+                        greeting = "Good Evening! &#129312";
+                    }
+
+                    return greeting;
+                }
+
+                function printTime() {
+                    document.getElementById("time").innerHTML = getTime();
+                    document.getElementById("time").style = "visibility: visible;margin-top: 10px;margin-bottom:0px;font-size: 20px;";
+                    document.getElementById("greeting").innerHTML = getGreeting();
+                    document.getElementById("greeting").style = "visibility: visible;margin-top: 5px;font-size: 20px;";
+                }
+
+
+            </script>
+        </div>
+    </div>
+
+    <div class="backToTop">
+        <button type="button" onClick="window.location.href='#top'">Back to Top</button>
+    </div>
+
+    <div class="footer">
+        <button type="button" onclick="window.location.href='page_4.htm';">Previous</button>
+        <button type="button" onclick="window.location.href='page_6.htm';">Next</button>
+    </div>
+</body>
+
+</html>
